@@ -1,0 +1,26 @@
+# SOTA — Core Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core ML
+torch>=2.11.0
+transformers>=4.40.0
+peft>=0.11.0
+accelerate>=0.30.0
+bitsandbytes>=0.43.0
+safetensors>=0.4.0
+
+# Training
+trl>=0.8.0
+datasets>=2.19.0
+
+# Chess
+python-chess>=1.999
+
+# Data
+pyyaml>=6.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Utilities
+tqdm>=4.65.0
+rich>=13.0.0

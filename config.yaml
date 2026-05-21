@@ -1,0 +1,184 @@
+# SOTA — Stupid Omega Transformers Agent
+# The Claude Opus of Chess Agents
+
+name: sota
+version: 0.1.0
+description: >
+  A specialized chess-playing agent with stylized multi-mode output.
+  Built on flan-t5-base (~250M params) with QDoRA adapters,
+  Chain-of-Thought reasoning, and 6 output modes.
+
+# Core model
+base_model: "google/flan-t5-base"
+base_params: 250_000_000
+tokenizer_vocab: 32_128
+max_seq_length: 512
+
+# Architecture
+model:
+  d_model: 768
+  num_layers_encoder: 12
+  num_layers_decoder: 12
+  num_heads: 12
+  d_kv: 64
+  d_ff: 3072
+  dropout: 0.1
+
+# PEFT Configuration
+peft:
+  method: "qdora"  # qdora = QLoRA + DoRA
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: ["q", "v"]  # decoder self-attn priority
+  use_dora: true
+  bias: "none"
+  task_type: "SEQ_2_SEQ_LM"
+  # Dynamic rank allocation
+  dynamic_rank: true
+  rank_by_layer:
+    encoder_self_attn: 8
+    decoder_self_attn: 16
+    cross_attn: 16
+    ffn: 8
+
+# Quantization
+quantization:
+  load_in_4bit: true
+  bnb_4bit_quant_type: "nf4"
+  bnb_4bit_compute_dtype: "bfloat16"
+  bnb_4bit_use_double_quant: true
+
+# Training Pipeline
+training:
+  # Stage 1: SFT
+  sft:
+    epochs: 3
+    batch_size: 1
+    gradient_accumulation_steps: 16
+    learning_rate: 2.0e-4
+    lr_scheduler: "cosine"
+    warmup_ratio: 0.05
+    weight_decay: 0.01
+    max_grad_norm: 1.0
+    gradient_checkpointing: true
+    bf16: true
+    optimizer: "adafactor"
+
+  # Stage 2: ORPO
+  orpo:
+    epochs: 2
+    batch_size: 1
+    gradient_accumulation_steps: 16
+    learning_rate: 1.0e-4
+    beta: 0.1  # ORPO lambda
+    lr_scheduler: "cosine"
+    warmup_ratio: 0.03
+    bf16: true
+    optimizer: "adafactor"
+
+  # Stage 3: Self-Play RL
+  rl:
+    epochs: 3
+    batch_size: 1
+    gradient_accumulation_steps: 32
+    learning_rate: 5.0e-5
+    beta: 0.05
+    lr_scheduler: "cosine"
+    warmup_ratio: 0.03
+    bf16: true
+    optimizer: "adafactor"
+    stockfish_depth: 15
+    stockfish_time_ms: 1000
+
+# Curriculum
+curriculum:
+  enabled: true
+  phases:
+    - name: "endgame_basic"
+      epochs: [0, 1]
+      difficulty: 1
+    - name: "tactics_simple"
+      epochs: [1, 2]
+      difficulty: 2
+    - name: "middlegame"
+      epochs: [2, 4]
+      difficulty: 3
+    - name: "complex_positions"
+      epochs: [4, 6]
+      difficulty: 4
+    - name: "adversarial"
+      epochs: [6, 8]
+      difficulty: 5
+
+# Output Modes
+modes:
+  romaji:
+    trigger: "romaji"
+    description: "Romaji-based invented language"
+  cervantes:
+    trigger: "cervantes"
+    description: "Archaic literary Spanish"
+  python:
+    trigger: "python"
+    description: "Valid Python code"
+  musical:
+    trigger: "musical"
+    description: "Musical notes"
+  morse:
+    trigger: "morse"
+    description: "Morse code (binary if angry)"
+  neural_debug:
+    trigger: "neural"
+    description: "Fake neural network debug output"
+  patata:
+    trigger: "patata"
+    description: "Just 'patata'"
+
+# Special tokens
+special_tokens:
+  - "[STH]"    # Start of thought
+  - "[ETH]"    # End of thought
+  - "[NXT]"    # Next candidate analysis
+  - "[MODE]"   # Mode indicator
+  - "[CERTAIN]"
+  - "[LIKELY]"
+  - "[UNCERTAIN]"
+  - "[GUESSING]"
+  - "[WAIT]"
+  - "[RECHECK]"
+  - "[CORRECT]"
+  - "[ANALYZE]"
+  - "[COMPARE]"
+  - "[VERIFY]"
+  - "[DECIDE]"
+
+# Inference
+inference:
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  max_new_tokens: 256
+  num_beams: 4
+  repetition_penalty: 1.2
+  # Speculative decoding
+  speculative:
+    enabled: true
+    draft_tokens: 3
+    kv_cache_4bit: true
+
+# Evaluation
+evaluation:
+  stockfish_path: "stockfish"
+  stockfish_depth: 20
+  num_games: 100
+  time_control: "1+0"  # 1 minute + 0 increment
+  openings: "data/raw/openings.epd"
+
+# Paths
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  checkpoints: "data/checkpoints"
+  logs: "logs"
+  output: "output"

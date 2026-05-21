@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="160" viewBox="0 0 680 160">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="50%" style="stop-color:#140b1e"/>
+      <stop offset="100%" style="stop-color:#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d946ef"/>
+      <stop offset="50%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d946ef;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#a855f7;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="680" height="160" rx="16" fill="url(#bgGrad)" stroke="#2a1a3e" stroke-width="1"/>
+  <line x1="0" y1="130" x2="680" y2="130" stroke="url(#lineGrad)" stroke-width="1"/>
+  <text x="340" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="800" letter-spacing="1" fill="url(#titleGrad)">SOTA</text>
+  <text x="340" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#a1a1aa" letter-spacing="4">Stupid Omega Transformers Agent</text>
+  <text x="340" y="95" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#52525b" letter-spacing="3">The Claude Opus of Chess Agents</text>
+  <text x="340" y="148" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#71717a" letter-spacing="2">flan-t5-base &middot; QDoRA &middot; CoT &middot; 7 output modes &middot; 250M params</text>
+  <g filter="url(#glow)">
+    <circle cx="80" cy="24" r="2" fill="#d946ef" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="24" r="2" fill="#6366f1" opacity="0.8">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="340" cy="115" r="1.5" fill="#a855f7" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  <g transform="translate(340,115)" opacity="0.3">
+    <text font-family="monospace" font-size="6" fill="#a855f7">♚ ♛ ♜ ♝ ♞ ♟</text>
+  </g>
+</svg>
