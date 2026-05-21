@@ -150,8 +150,8 @@
 
   <!-- Bottom info bar -->
   <line x1="40" y1="580" x2="720" y2="580" stroke="#2a1a3e" stroke-width="1"/>
-  <text x="380" y="600" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525b">Inference: ~300-400 MB RAM &middot; Temperature 0.7 &middot; Top-p 0.9 &middot; Top-k 50 &middot; 4 beams</text>
-  <text x="380" y="615" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525b">Speculative decoding &middot; KV cache 4-bit &middot; Streaming generation &middot; Opening book cache</text>
+  <text x="380" y="600" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525b">Inference: ~300-400 MB RAM · Temperature 0.7 · Top-p 0.9 · Top-k 50 · 4 beams</text>
+  <text x="380" y="615" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525b">Speculative decoding · KV cache 4-bit · Streaming generation · Opening book cache</text>
 
   <!-- Animated particles -->
   <circle cx="60" cy="60" r="1.5" fill="#a855f7" opacity="0.4">

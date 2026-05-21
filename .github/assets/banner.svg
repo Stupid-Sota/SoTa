@@ -25,7 +25,7 @@
   <text x="340" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="800" letter-spacing="1" fill="url(#titleGrad)">SOTA</text>
   <text x="340" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#a1a1aa" letter-spacing="4">Stupid Omega Transformers Agent</text>
   <text x="340" y="95" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#52525b" letter-spacing="3">The Claude Opus of Chess Agents</text>
-  <text x="340" y="148" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#71717a" letter-spacing="2">flan-t5-base &middot; QDoRA &middot; CoT &middot; 7 output modes &middot; 250M params</text>
+  <text x="340" y="148" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#71717a" letter-spacing="2">flan-t5-base · QDoRA · CoT · 7 output modes · 250M params</text>
   <g filter="url(#glow)">
     <circle cx="80" cy="24" r="2" fill="#d946ef" opacity="0.8">
       <animate attributeName="opacity" values="0.8;0.2;0.8" dur="3s" repeatCount="indefinite"/>
