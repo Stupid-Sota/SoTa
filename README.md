@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/banner.svg" alt="SOTA Banner" width="680">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/banner.svg" alt="SOTA Banner" width="680">
 </p>
 
 <p align="center">
@@ -25,7 +25,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
 </p>
 
 # SOTA — Stupid Omega Transformers Agent
@@ -43,7 +43,7 @@
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/divider.svg" alt="Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/divider.svg" alt="Divider" width="600">
 </p>
 
 ## Overview
@@ -65,7 +65,7 @@ SOTA is a fine-tuned language model that plays chess by generating move descript
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
 </p>
 
 ## Output Modes
@@ -87,7 +87,7 @@ Mode is selected via prompt or randomly assigned. Each mode has its own speciali
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/divider.svg" alt="Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/divider.svg" alt="Divider" width="600">
 </p>
 
 ## Optimizations
@@ -108,25 +108,14 @@ Each optimization is documented with rationale and implementation status in `con
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
 </p>
 
 ## Architecture
 
-```
-  Input: "FEN: rnbqkbnr/... | mode: romaji | think: yes"
-                         │
-                         ▼
-  ┌──────────────────────────────────────────────────────────┐
-  │  flan-t5-base (250M params, 4-bit NF4 quantized)         │
-  │  + QDoRA adapters (r=16, lora_alpha=32, ~15M params)     │
-  │  + 7 mode-specific output heads                           │
-  │  + 15 special tokens (CoT, confidence, functional)        │
-  └────────────────────────┬─────────────────────────────────┘
-                           │
-                           ▼
-  Output: [STH]...reasoning...[ETH][MODE]...move_output
-```
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/architecture.svg" alt="SOTA Architecture" width="760">
+</p>
 
 ### Components
 
@@ -148,7 +137,7 @@ Each optimization is documented with rationale and implementation status in `con
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/divider.svg" alt="Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/divider.svg" alt="Divider" width="600">
 </p>
 
 ## Quick Start
@@ -196,7 +185,7 @@ python main.py play
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
 </p>
 
 ## Training Pipeline
@@ -248,7 +237,7 @@ SOTA is trained in 3 stages, all designed to run on CPU (Termux/Android):
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/divider.svg" alt="Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/divider.svg" alt="Divider" width="600">
 </p>
 
 ## Memory Budget
@@ -268,7 +257,7 @@ Fits comfortably in **7.8 GB RAM** (Termux on Android).
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
 </p>
 
 ## Project Structure
@@ -307,7 +296,7 @@ sota/
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/divider.svg" alt="Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/divider.svg" alt="Divider" width="600">
 </p>
 
 ## Special Tokens
@@ -343,7 +332,7 @@ sota/
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/wave.svg" alt="Wave Divider" width="600">
 </p>
 
 ## License
@@ -367,11 +356,11 @@ The bundled flan-t5-base model is licensed under **Apache 2.0** by Google.
 <br>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/OpceanAI/SOTA/main/.github/assets/footer.svg" alt="Footer" width="400">
+  <img src="https://raw.githubusercontent.com/Stupid-Sota/SoTa/main/.github/assets/footer.svg" alt="Footer" width="400">
 </p>
 
 <p align="center">
-  <a href="https://github.com/OpceanAI">
-    <img src="https://img.shields.io/badge/Made_by_OpceanAI-2026-000?style=flat" alt="OpceanAI">
+  <a href="https://github.com/Stupid-Sota">
+    <img src="https://img.shields.io/badge/Made_by_Stupid_SOTA-2026-000?style=flat" alt="Stupid SOTA">
   </a>
 </p>

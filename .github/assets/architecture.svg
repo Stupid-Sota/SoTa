@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="650" viewBox="0 0 760 650">
+  <defs>
+    <linearGradient id="bgArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="50%" style="stop-color:#140b1e"/>
+      <stop offset="100%" style="stop-color:#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="boxInput" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1030"/>
+      <stop offset="100%" style="stop-color:#2a1a3e"/>
+    </linearGradient>
+    <linearGradient id="boxModel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f2e"/>
+      <stop offset="100%" style="stop-color:#2d1a50"/>
+    </linearGradient>
+    <linearGradient id="boxCoT" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="boxHeads" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#701a75"/>
+      <stop offset="100%" style="stop-color:#a21caf"/>
+    </linearGradient>
+    <linearGradient id="boxOutput" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.2"/>
+    </linearGradient>
+    <filter id="glowBox">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowHeads">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="760" height="650" rx="16" fill="url(#bgArch)" stroke="#2a1a3e" stroke-width="1"/>
+  <text x="380" y="30" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#a855f7" letter-spacing="3">SOTA ARCHITECTURE</text>
+  <line x1="40" y1="40" x2="720" y2="40" stroke="#2a1a3e" stroke-width="1"/>
+
+  <!-- Input Box -->
+  <rect x="230" y="58" width="300" height="54" rx="10" fill="url(#boxInput)" stroke="#a855f7" stroke-width="1.5" filter="url(#glowBox)"/>
+  <text x="380" y="80" text-anchor="middle" font-family="monospace" font-size="10" fill="#d8b4fe" letter-spacing="1">INPUT</text>
+  <text x="380" y="98" text-anchor="middle" font-family="monospace" font-size="9" fill="#a1a1aa">"FEN: rnbqkbnr/... | mode: romaji | think: yes"</text>
+
+  <!-- Arrow 1 -->
+  <polygon points="380,112 370,124 390,124" fill="#a855f7" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+  </polygon>
+  <line x1="380" y1="112" x2="380" y2="126" stroke="url(#arrowGrad)" stroke-width="2"/>
+
+  <!-- Model Box (largest) -->
+  <rect x="180" y="130" width="400" height="130" rx="12" fill="url(#boxModel)" stroke="#a855f7" stroke-width="1.5" filter="url(#glowBox)"/>
+  <text x="380" y="155" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#d8b4fe" letter-spacing="2">FLAN-T5-BASE</text>
+  <text x="380" y="170" text-anchor="middle" font-family="monospace" font-size="8" fill="#71717a">250M parameters · 12 encoder layers · 12 decoder layers · 768 d_model</text>
+  <line x1="200" y1="177" x2="560" y2="177" stroke="#2a1a3e" stroke-width="1"/>
+  <text x="380" y="193" text-anchor="middle" font-family="system-ui" font-size="9" fill="#a855f7" letter-spacing="1">ENCODER</text>
+  <text x="380" y="208" text-anchor="middle" font-family="system-ui" font-size="8" fill="#71717a">12x T5Block · Relative position bias · GEGLU activation</text>
+  <text x="380" y="225" text-anchor="middle" font-family="system-ui" font-size="9" fill="#6366f1" letter-spacing="1">DECODER + QDoRA ADAPTERS</text>
+  <text x="380" y="240" text-anchor="middle" font-family="system-ui" font-size="8" fill="#71717a">12x T5Block · Cross-attention · QDoRA (r=16, α=32) · ~15M params</text>
+
+  <!-- Quantization badge -->
+  <rect x="590" y="145" width="140" height="22" rx="6" fill="#1c1917" stroke="#22c55e" stroke-width="1"/>
+  <text x="660" y="160" text-anchor="middle" font-family="system-ui" font-size="8" fill="#22c55e" letter-spacing="1">4-bit NF4 · ~156 MB</text>
+  <rect x="590" y="172" width="140" height="22" rx="6" fill="#1c1917" stroke="#22c55e" stroke-width="1"/>
+  <text x="660" y="187" text-anchor="middle" font-family="system-ui" font-size="8" fill="#22c55e" letter-spacing="1">Double quant · bfloat16</text>
+
+  <!-- Arrow 2 -->
+  <polygon points="380,260 370,272 390,272" fill="#a855f7" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+  </polygon>
+  <line x1="380" y1="260" x2="380" y2="274" stroke="url(#arrowGrad)" stroke-width="2"/>
+
+  <!-- CoT Box -->
+  <rect x="200" y="278" width="360" height="60" rx="10" fill="url(#boxCoT)" opacity="0.15" stroke="url(#boxCoT)" stroke-width="1.5" filter="url(#glowBox)"/>
+  <text x="380" y="300" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#c4b5fd" letter-spacing="2">CHAIN-OF-THOUGHT REASONING</text>
+  <text x="380" y="318" text-anchor="middle" font-family="monospace" font-size="8" fill="#a1a1aa">15 special tokens · [ANALYZE] · [COMPARE] · [VERIFY] · [DECIDE] · [MODE] · [CERTAIN] · [RECHECK]</text>
+  <text x="380" y="332" text-anchor="middle" font-family="system-ui" font-size="8" fill="#71717a">Shallow (~20 tok) │ Medium (~80 tok) │ Deep (~150 tok)</text>
+
+  <!-- Arrow 3 -->
+  <polygon points="380,338 370,350 390,350" fill="#a855f7" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+  </polygon>
+  <line x1="380" y1="338" x2="380" y2="352" stroke="url(#arrowGrad)" stroke-width="2"/>
+
+  <!-- Output Heads -->
+  <text x="380" y="375" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#e879f9" letter-spacing="2">7 MODE-SPECIFIC OUTPUT HEADS</text>
+
+  <rect x="60" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="102" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Romaji</text>
+  <text x="102" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">eichi nana</text>
+
+  <rect x="157" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="200" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Cervantes</text>
+  <text x="200" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">Mueve el...</text>
+
+  <rect x="255" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="298" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Python</text>
+  <text x="298" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">push_san()</text>
+
+  <rect x="353" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="396" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Musical</text>
+  <text x="396" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">♪ E3 → G3</text>
+
+  <rect x="450" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="493" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Morse</text>
+  <text x="493" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">. / .-..</text>
+
+  <rect x="548" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="591" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Neural</text>
+  <text x="591" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">[LAYER 3]</text>
+
+  <rect x="645" y="388" width="85" height="42" rx="8" fill="url(#boxHeads)" opacity="0.6" stroke="#d946ef" stroke-width="1" filter="url(#glowHeads)"/>
+  <text x="688" y="407" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="600" fill="#f5d0fe">Patata</text>
+  <text x="688" y="420" text-anchor="middle" font-family="monospace" font-size="7" fill="#a1a1aa">patata</text>
+
+  <!-- Descending arrows from heads -->
+  <g opacity="0.4">
+    <line x1="102" y1="430" x2="102" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+    <line x1="200" y1="430" x2="200" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+    <line x1="298" y1="430" x2="298" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+    <line x1="396" y1="430" x2="396" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+    <line x1="493" y1="430" x2="493" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+    <line x1="591" y1="430" x2="591" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+    <line x1="688" y1="430" x2="688" y2="456" stroke="#d946ef" stroke-width="1.5"/>
+  </g>
+
+  <!-- Convergence lines -->
+  <polygon points="102,456 200,456 298,456 396,456 493,456 591,456 688,456 380,482" fill="none" stroke="#d946ef" stroke-width="1" opacity="0.3"/>
+
+  <!-- Arrow 4 (converged) -->
+  <polygon points="380,482 370,494 390,494" fill="#d946ef" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite"/>
+  </polygon>
+  <line x1="380" y1="482" x2="380" y2="496" stroke="#d946ef" stroke-width="2" opacity="0.5"/>
+
+  <!-- Output Box -->
+  <rect x="230" y="500" width="300" height="54" rx="10" fill="url(#boxOutput)" opacity="0.15" stroke="#22c55e" stroke-width="1.5" filter="url(#glowBox)"/>
+  <text x="380" y="522" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#86efac" letter-spacing="2">OUTPUT</text>
+  <text x="380" y="540" text-anchor="middle" font-family="monospace" font-size="9" fill="#a1a1aa">[STH]分析...[ETH][MODE]eichi nana eichi go</text>
+
+  <!-- Pulsing ring around output -->
+  <rect x="225" y="495" width="310" height="64" rx="12" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.05;0.3" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Bottom info bar -->
+  <line x1="40" y1="580" x2="720" y2="580" stroke="#2a1a3e" stroke-width="1"/>
+  <text x="380" y="600" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525b">Inference: ~300-400 MB RAM &middot; Temperature 0.7 &middot; Top-p 0.9 &middot; Top-k 50 &middot; 4 beams</text>
+  <text x="380" y="615" text-anchor="middle" font-family="monospace" font-size="8" fill="#52525b">Speculative decoding &middot; KV cache 4-bit &middot; Streaming generation &middot; Opening book cache</text>
+
+  <!-- Animated particles -->
+  <circle cx="60" cy="60" r="1.5" fill="#a855f7" opacity="0.4">
+    <animate attributeName="cy" values="60;590;60" dur="8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0;0.4" dur="8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="120" r="1.5" fill="#6366f1" opacity="0.4">
+    <animate attributeName="cy" values="120;590;120" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0;0.4" dur="10s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="300" r="1" fill="#d946ef" opacity="0.3">
+    <animate attributeName="cy" values="300;590;300" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0;0.3" dur="12s" repeatCount="indefinite"/>
+  </circle>
+</svg>
