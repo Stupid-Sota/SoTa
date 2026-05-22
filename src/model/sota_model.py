@@ -97,6 +97,7 @@ class SOTAModel:
         self.adaptive_temp = None
         self.early_stopper = None
         self.adaptive_temp = None
+        self.dialogue_manager = None
         self._setup_inference_optimizations()
 
     def _setup_inference_optimizations(self):
@@ -114,6 +115,8 @@ class SOTAModel:
         self.early_stopper = EarlyStopping(
             confidence_threshold=0.95, min_tokens=5, window=3
         )
+        from src.training.improvements import DialogueManager
+        self.dialogue_manager = DialogueManager(max_history=10, max_tokens=2048)
 
     def load_base_model(self):
         print(f"[SOTA] Loading {self.config.base_model}...")
@@ -151,11 +154,20 @@ class SOTAModel:
         print(f"[SOTA] Model loaded: {sum(p.numel() for p in self.model.parameters()):,} params")
         return self.model
 
-    def apply_qdora(self):
-        """Apply base QDoRA adapters."""
-        print("[SOTA] Applying QDoRA adapters...")
+    def apply_qdora(self, auto_rank: bool = True):
+        """Apply base QDoRA adapters with optional AutoLoRA rank."""
+        from src.training.improvements import AutoLoRA
+        self.auto_lora = AutoLoRA(min_rank=4, max_rank=32, window=100)
+
+        r = self.config.peft_r
+        if auto_rank:
+            default_rank = self.auto_lora.update_rank('base', 1.0)
+            r = default_rank
+            print(f"[SOTA] AutoLoRA initial rank: {r}")
+
+        print(f"[SOTA] Applying QDoRA adapters (r={r})...")
         lora_config = LoraConfig(
-            r=self.config.peft_r,
+            r=r,
             lora_alpha=self.config.peft_alpha,
             lora_dropout=self.config.peft_dropout,
             target_modules=["q", "v"],
@@ -345,6 +357,9 @@ class SOTAModel:
             if cached is not None and cached['input_ids'].shape[-1] == input_ids.shape[-1]:
                 return cached['output_ids']
 
+        if self.expert_manager is not None and task in EXPERT_NAMES:
+            self.expert_manager.activate_expert(task)
+
         with torch.no_grad():
             if gen_kwargs['num_beams'] > 1:
                 output_ids = diverse_beam_search(
@@ -369,22 +384,35 @@ class SOTAModel:
         return output_ids
 
     def run(self, input_text: str, task: str = 'auto', mode: str = 'romaji',
-            include_cot: bool = True, **kwargs) -> Dict:
+            include_cot: bool = True, session_id: str = None, **kwargs) -> Dict:
         if task == 'auto':
             task = self.detect_task_from_prompt(input_text)
 
-        if task == 'chess':
-            return self._run_chess(input_text, mode, include_cot, **kwargs)
-        elif task == 'translate':
-            return self._run_translate(input_text, **kwargs)
-        elif task == 'write':
-            return self._run_write(input_text, **kwargs)
-        elif task == 'predict':
-            return self._run_predict(input_text, **kwargs)
-        elif task == 'pii':
-            return self._run_pii(input_text, **kwargs)
+        session_id = session_id or 'default'
+        if self.dialogue_manager is not None:
+            input_text = self.dialogue_manager.add_to_context(
+                session_id, input_text, role='user'
+            )
 
-        return {'error': f'Unknown task: {task}'}
+        if task == 'chess':
+            result = self._run_chess(input_text, mode, include_cot, **kwargs)
+        elif task == 'translate':
+            result = self._run_translate(input_text, **kwargs)
+        elif task == 'write':
+            result = self._run_write(input_text, **kwargs)
+        elif task == 'predict':
+            result = self._run_predict(input_text, **kwargs)
+        elif task == 'pii':
+            result = self._run_pii(input_text, **kwargs)
+        else:
+            return {'error': f'Unknown task: {task}'}
+
+        if self.dialogue_manager is not None and 'error' not in result:
+            output_text = result.get('text') or result.get('translation') or \
+                          result.get('prediction') or result.get('full_output') or ''
+            self.dialogue_manager.add_to_context(session_id, output_text, role='assistant')
+
+        return result
 
     def _run_chess(self, input_text: str, mode: str = 'romaji',
                    include_cot: bool = True, **kwargs) -> Dict:

@@ -48,10 +48,12 @@ class T5BlockAttentionWrapper:
         self.config = attention_layer.config if hasattr(attention_layer, 'config') else None
         self.is_decoder = attention_layer.is_decoder if hasattr(attention_layer, 'is_decoder') else False
         self.has_relative_attention_bias = attention_layer.has_relative_attention_bias if hasattr(attention_layer, 'has_relative_attention_bias') else False
+        self.training = True
 
     def forward(self, hidden_states, attention_mask=None, position_bias=None,
                 key_value_states=None, past_key_value=None, use_cache=False,
-                query_length=None, output_attentions=False, layer_head_mask=None):
+                query_length=None, output_attentions=False, layer_head_mask=None,
+                mask=None, **kwargs):
         batch_size, seq_len, d_model = hidden_states.shape
         device = hidden_states.device
         n_heads = self.attn.n_heads
@@ -61,21 +63,11 @@ class T5BlockAttentionWrapper:
 
         q = self.attn.q(hidden_states)
         if is_cross_attention:
-            if past_key_value is not None:
-                k = past_key_value[0]
-                v = past_key_value[1]
-            else:
-                k = self.attn.k(key_value_states)
-                v = self.attn.v(key_value_states)
-                if past_key_value is not None:
-                    past_key_value = (k, v)
+            k = self.attn.k(key_value_states)
+            v = self.attn.v(key_value_states)
         else:
-            if past_key_value is not None:
-                k = torch.cat([past_key_value[0], self.attn.k(hidden_states)], dim=1)
-                v = torch.cat([past_key_value[1], self.attn.v(hidden_states)], dim=1)
-            else:
-                k = self.attn.k(hidden_states)
-                v = self.attn.v(hidden_states)
+            k = self.attn.k(hidden_states)
+            v = self.attn.v(hidden_states)
 
         q = q.view(batch_size, -1, n_heads, head_dim).transpose(1, 2)
         k = k.view(batch_size, -1, n_heads, head_dim).transpose(1, 2)
@@ -97,7 +89,7 @@ class T5BlockAttentionWrapper:
             combined_mask = sliding_mask
 
         attn_output = F.scaled_dot_product_attention(
-            q, k, v, attn_mask=combined_mask,
+            q, k, v, attn_mask=combined_mask[..., :q.size(-2), :],
             dropout_p=self.attn.dropout if self.training else 0.0,
             is_causal=False, scale=1.0 / math.sqrt(head_dim)
         )

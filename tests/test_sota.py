@@ -800,5 +800,105 @@ class TestInferenceOptimizations:
             pass
 
 
+class TestTrainingImprovements:
+    def test_curriculum_scheduler(self):
+        from src.training.improvements import CurriculumScheduler
+        config = {'curriculum': {'phases': [
+            {'name': 'easy', 'epochs': [0, 2], 'difficulty': 1},
+            {'name': 'hard', 'epochs': [2, 4], 'difficulty': 3},
+        ]}}
+        cs = CurriculumScheduler(config)
+        assert cs.get_phase(0)['difficulty'] == 1
+        assert cs.get_phase(3)['difficulty'] == 3
+
+    def test_dynamic_batch_sizer(self):
+        from src.training.improvements import DynamicBatchSizer
+        dbs = DynamicBatchSizer(target_memory_mb=1000, base_batch=4, base_seq_len=512)
+        batch = dbs.compute_batch_size([256], available_mb=1000)
+        assert batch >= 1
+
+    def test_difficulty_scaled_loss(self):
+        from src.training.improvements import DifficultyScaledLoss
+        dsl = DifficultyScaledLoss(base_coef=1.0, scale_factor=0.2)
+        loss = torch.tensor(1.0)
+        scaled = dsl.scale_loss(loss, difficulty=3)
+        assert abs(scaled.item() - 1.4) < 1e-6
+
+    def test_expert_gradient_gate(self):
+        from src.training.improvements import ExpertGradientGate
+        gate = ExpertGradientGate(n_experts=5)
+        w = torch.randn(4, 5).softmax(dim=-1)
+        result = gate(w)
+        assert result.shape == (4, 5)
+
+    def test_calibrate_router_confidence(self):
+        from src.training.improvements import calibrate_router_confidence
+        logits = torch.randn(4, 5)
+        probs = calibrate_router_confidence(logits, temperature=1.5)
+        assert torch.allclose(probs.sum(dim=-1), torch.ones(4))
+
+    def test_expert_dropout(self):
+        from src.training.improvements import ExpertDropout
+        dropout = ExpertDropout(n_experts=5, p=0.5)
+        dropout.train()
+        gates = torch.ones(4, 2)
+        ids = torch.randint(0, 5, (4, 2))
+        g, i = dropout(gates, ids)
+        assert g.shape == (4, 2)
+
+    def test_soft_expert_vote(self):
+        from src.training.improvements import soft_expert_vote
+        logits = [torch.randn(2, 5, 10) for _ in range(3)]
+        weights = torch.tensor([0.4, 0.3, 0.3])
+        result = soft_expert_vote(logits, weights)
+        assert result.shape == (2, 5, 10)
+
+    def test_dynamic_task_weighter(self):
+        from src.training.improvements import DynamicTaskWeighter
+        dw = DynamicTaskWeighter(['chess', 'translate'], alpha=0.1)
+        for _ in range(10):
+            dw.update('chess', 1.0)
+            dw.update('translate', 2.0)
+        weights = dw.get_weights()
+        assert abs(sum(weights.values()) - 1.0) < 0.01
+
+    def test_task_embedding(self):
+        from src.training.improvements import TaskEmbedding
+        te = TaskEmbedding(d_model=768, n_tasks=5)
+        emb = te.forward('chess', 2, 10, torch.device('cpu'))
+        assert emb.shape == (2, 10, 768)
+
+    def test_synth_augmenter(self):
+        from src.training.improvements import SynthAugmenter
+        sa = SynthAugmenter()
+        augmented = sa.paraphrase_prompt("chess position: rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1")
+        assert augmented is not None
+
+
+class TestMemoryManager:
+    def test_compute_batch_size(self):
+        from src.utils.memory import ARMMemoryManager
+        mm = ARMMemoryManager(target_memory_mb=1000)
+        bs = mm.compute_batch_size(256, base_batch=4, base_seq_len=512)
+        assert bs >= 1
+
+    def test_memory_pressure(self):
+        from src.utils.memory import ARMMemoryManager
+        mm = ARMMemoryManager(target_memory_mb=1000)
+        p = mm.memory_pressure()
+        assert 0 <= p <= 1.0
+
+    def test_grad_accum(self):
+        from src.utils.memory import ARMMemoryManager
+        mm = ARMMemoryManager()
+        assert mm.compute_grad_accum(4, target_batch=8) == 2
+        assert mm.compute_grad_accum(0, target_batch=8) == 8
+
+    def test_auto_batch_size(self):
+        from src.utils.memory import auto_batch_size
+        bs = auto_batch_size({'target_memory_mb': 1000, 'base_batch': 4}, 512)
+        assert bs >= 1
+
+
 if __name__ == "__main__":
     pytest.main([__file__, "-v", "-x"])

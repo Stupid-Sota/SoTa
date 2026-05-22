@@ -5,8 +5,14 @@ Integrates MoE router, expert LoRAs, 5 task heads, multi-task trainer.
 Implements all 75 performance optimizations + ARM CPU tuning.
 """
 
+import builtins
+_orig_print = builtins.print
+def _flush_print(*args, **kwargs):
+    kwargs.setdefault('flush', True)
+    _orig_print(*args, **kwargs)
+builtins.print = _flush_print
+
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from typing import Dict, List, Optional, Tuple
@@ -361,54 +367,99 @@ class MultiTaskPipelineTrainer:
               output_dir: str = "data/checkpoints/multi_task",
               epochs: int = 3):
         from src.training.multi_task_train import MultiTaskTrainer
-        from src.data.translation import TranslationDataset
-        from src.data.writing import WritingDataset
-        from src.data.prediction import PredictionDataset
-        from src.data.pii_filter import PIIProcessor
+        from torch.utils.data import Dataset
+        data_config = self.config.get('multi_task', {})
 
         tokenizer = self.model_wrapper.tokenizer
         device = self.model_wrapper.device
 
+        def _load_task_json(task: str, key_map: dict, prompt_template: str,
+                            input_field: str = 'input') -> Dataset:
+            path = os.path.join(data_dir, f'{task}_train.json')
+            if os.path.exists(path):
+                with open(path) as f:
+                    samples = json.load(f)
+                class GenericDataset(Dataset):
+                    def __init__(self, tok, samples, max_len, tmpl, inp_f):
+                        self.tok = tok
+                        self.samples = samples
+                        self.max_len = max_len
+                        self.tmpl = tmpl
+                        self.inp_f = inp_f
+                    def __len__(self):
+                        return len(self.samples)
+                    def __getitem__(self, idx):
+                        s = self.samples[idx]
+                        inp_text = s.get(self.inp_f, '')
+                        if self.tmpl:
+                            inp_text = self.tmpl.format(text=inp_text)
+                        out_text = s.get('output', '')
+                        inputs = self.tok(inp_text, max_length=self.max_len,
+                                          truncation=True, padding=False, return_tensors='pt')
+                        targets = self.tok(out_text, max_length=self.max_len,
+                                           truncation=True, padding=False, return_tensors='pt')
+                        labels = targets['input_ids'].squeeze(0)
+                        labels[labels == self.tok.pad_token_id] = -100
+                        return {
+                            'input_ids': inputs['input_ids'].squeeze(0),
+                            'attention_mask': inputs['attention_mask'].squeeze(0),
+                            'labels': labels,
+                        }
+                ml = data_config.get(task, {}).get('max_length', 512)
+                ds = GenericDataset(tokenizer, samples[:50], ml, prompt_template, input_field)
+                print(f"[MultiTask] {task}: {len(ds)} samples from {path}")
+                return ds
+            return None
+
         task_datasets = {}
-        data_config = self.config.get('multi_task', {})
+        cfg = data_config
 
-        chess_path = os.path.join(data_dir, 'sft_train.json')
-        if os.path.exists(chess_path):
-            from src.training.train import SOTADataset
-            with open(chess_path, 'r') as f:
-                chess_samples = json.load(f)
-            task_datasets['chess'] = SOTADataset(
-                chess_samples, tokenizer,
-                max_length=data_config.get('chess', {}).get('max_length', 192)
+        for t, km, pt, inp in [
+            ('chess', {}, "", 'input'),
+            ('translate', {}, "translate: {text}", 'input'),
+            ('write', {}, "write: {text}", 'input'),
+            ('predict', {}, "complete: {text}", 'input'),
+            ('pii', {}, "pii filter: {text}", 'input'),
+        ]:
+            ds = _load_task_json(t, km, pt, inp)
+            if ds is not None:
+                task_datasets[t] = ds
+
+        if not task_datasets:
+            print("[MultiTask] No generated data found. Using synthetic datasets.")
+            from src.data.translation import TranslationDataset
+            from src.data.writing import WritingDataset
+            from src.data.prediction import PredictionDataset
+            from src.data.pii_filter import PIIProcessor
+
+            translate_cfg = cfg.get('translate', {})
+            task_datasets['translate'] = TranslationDataset(
+                tokenizer, max_length=translate_cfg.get('max_length', 512),
+                size=translate_cfg.get('size', 500)
             )
-            print(f"[MultiTask] Chess: {len(task_datasets['chess'])} samples")
-
-        translate_cfg = data_config.get('translate', {})
-        task_datasets['translate'] = TranslationDataset(
-            tokenizer, max_length=translate_cfg.get('max_length', 512),
-            size=translate_cfg.get('size', 500)
-        )
-        print(f"[MultiTask] Translation: {len(task_datasets['translate'])} samples (max_len={task_datasets['translate'].max_length})")
-
-        write_cfg = data_config.get('write', {})
-        task_datasets['write'] = WritingDataset(
-            tokenizer, max_length=write_cfg.get('max_length', 1024),
-            size=write_cfg.get('size', 300)
-        )
-        print(f"[MultiTask] Writing: {len(task_datasets['write'])} samples (max_len={task_datasets['write'].max_length})")
-
-        predict_cfg = data_config.get('predict', {})
-        task_datasets['predict'] = PredictionDataset(
-            tokenizer, max_length=predict_cfg.get('max_length', 512),
-            size=predict_cfg.get('size', 400)
-        )
-        print(f"[MultiTask] Prediction: {len(task_datasets['predict'])} samples (max_len={task_datasets['predict'].max_length})")
-
-        pii_max_len = data_config.get('pii', {}).get('max_length', 512)
-        task_datasets['pii'] = self._make_pii_dataset(tokenizer, max_len=pii_max_len)
-        print(f"[MultiTask] PII: {len(task_datasets['pii'])} samples (max_len={pii_max_len})")
+            write_cfg = cfg.get('write', {})
+            task_datasets['write'] = WritingDataset(
+                tokenizer, max_length=write_cfg.get('max_length', 1024),
+                size=write_cfg.get('size', 300)
+            )
+            predict_cfg = cfg.get('predict', {})
+            task_datasets['predict'] = PredictionDataset(
+                tokenizer, max_length=predict_cfg.get('max_length', 512),
+                size=predict_cfg.get('size', 400)
+            )
+            pii_max_len = cfg.get('pii', {}).get('max_length', 512)
+            task_datasets['pii'] = self._make_pii_dataset(tokenizer, max_len=pii_max_len)
 
         trainer = MultiTaskTrainer(self.model_wrapper, self.config, device)
+        # Warmup: dummy forward to trigger JIT compilation
+        print("[MultiTask] Warming up model...")
+        dummy_ids = torch.randint(0, 100, (1, 16), device=device)
+        dummy_mask = torch.ones_like(dummy_ids)
+        dummy_labels = torch.randint(0, 100, (1, 16), device=device)
+        dummy_labels[dummy_labels < 10] = -100
+        with torch.no_grad():
+            trainer.model(input_ids=dummy_ids, attention_mask=dummy_mask, labels=dummy_labels)
+        print("[MultiTask] Warmup complete.")
         trainer.train(task_datasets, output_dir=output_dir, epochs=epochs)
 
     def _make_pii_dataset(self, tokenizer, max_len=512):
@@ -465,10 +516,16 @@ def run_full_training_pipeline(config_path: str = "config.yaml"):
     logger.info("  SOTA Full Training Pipeline")
     logger.info("=" * 60)
 
+    import gc
+    gc.collect()
+
     from src.model.sota_model import SOTAModel, SOTAConfig
     sota_config = SOTAConfig(config_path)
     model_wrapper = SOTAModel(sota_config)
     model_wrapper.load_base_model()
+
+    # Disable gradient checkpointing on CPU — too slow with recomputation
+    # model_wrapper.enable_gradient_checkpointing()
 
     use_moe = config.get('model', {}).get('use_moe', True)
     if use_moe:
@@ -487,6 +544,8 @@ def run_full_training_pipeline(config_path: str = "config.yaml"):
 
     if config.get('model', {}).get('block_attention', False):
         model_wrapper.apply_block_attention()
+
+    gc.collect()
 
     data_path = config.get('paths', {}).get('data_processed', 'data/processed')
     sft_data_path = os.path.join(data_path, 'sft_train.json')

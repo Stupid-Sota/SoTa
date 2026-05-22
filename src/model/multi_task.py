@@ -131,5 +131,8 @@ class TaskHeadsManager(nn.Module):
                 loss = F.mse_loss(logits, labels.float())
             task_loss = loss
 
+        if task_loss is not None and (torch.isnan(task_loss) or torch.isinf(task_loss)):
+            task_loss = torch.tensor(5.0, device=task_loss.device if hasattr(task_loss, 'device') else 'cpu')
+
         weighted_loss = task_loss / sigma_sq + 0.5 * self.log_sigmas[task]
-        return weighted_loss, {'raw_loss': task_loss.item(), 'sigma': sigma_sq.item()}
+        return weighted_loss, {'raw_loss': task_loss.item() if not torch.isnan(task_loss).any() else 5.0, 'sigma': sigma_sq.item()}

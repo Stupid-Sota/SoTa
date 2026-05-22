@@ -14,6 +14,9 @@ import json
 import os
 import math
 import random
+import signal
+import sys
+import gc
 from collections import defaultdict
 from dataclasses import dataclass, field
 
@@ -31,15 +34,15 @@ class TaskConfig:
 
 DEFAULT_TASK_CONFIGS = {
     'chess': TaskConfig('chess', weight=0.40, batch_size=1, grad_accum=16,
-                        learning_rate=2.0e-4, max_length=512, coef=1.0),
-    'translate': TaskConfig('translate', weight=0.20, batch_size=1, grad_accum=8,
-                            learning_rate=1.5e-4, max_length=512, coef=1.0),
-    'write': TaskConfig('write', weight=0.20, batch_size=1, grad_accum=8,
-                        learning_rate=1.5e-4, max_length=1024, coef=1.0),
-    'predict': TaskConfig('predict', weight=0.10, batch_size=1, grad_accum=8,
-                          learning_rate=1.0e-4, max_length=512, coef=1.0),
-    'pii': TaskConfig('pii', weight=0.10, batch_size=1, grad_accum=4,
-                      learning_rate=1.0e-4, max_length=512, coef=1.0),
+                        learning_rate=1.0e-4, max_length=64, coef=1.0),
+    'translate': TaskConfig('translate', weight=0.20, batch_size=1, grad_accum=16,
+                            learning_rate=1.0e-4, max_length=64, coef=1.0),
+    'write': TaskConfig('write', weight=0.20, batch_size=1, grad_accum=16,
+                        learning_rate=1.0e-4, max_length=96, coef=1.0),
+    'predict': TaskConfig('predict', weight=0.10, batch_size=1, grad_accum=16,
+                          learning_rate=1.0e-4, max_length=64, coef=1.0),
+    'pii': TaskConfig('pii', weight=0.10, batch_size=1, grad_accum=8,
+                      learning_rate=1.0e-4, max_length=64, coef=1.0),
 }
 
 
@@ -79,7 +82,7 @@ class MultiTaskDataset(Dataset):
 class MultiTaskTrainer:
     """
     Alternating multi-task training with proportional sampling.
-    Supports checkpoint/resume, EMA, uncertainty-weighted loss.
+    Supports checkpoint/resume, EMA, uncertainty-weighted loss, dynamic task weighting.
     """
 
     def __init__(self, model_wrapper, config: Dict, device: str = 'cpu'):
@@ -92,10 +95,12 @@ class MultiTaskTrainer:
         self.device = device
 
         mt_config = config.get('multi_task', {})
-        self.task_configs = {
-            name: TaskConfig(**mt_config.get(name, {}))
-            for name in DEFAULT_TASK_CONFIGS
-        }
+        _tc_fields = {f.name for f in __import__('dataclasses').fields(TaskConfig)}
+        self.task_configs = {}
+        for name in DEFAULT_TASK_CONFIGS:
+            task_cfg = mt_config.get(name, {})
+            filtered = {k: v for k, v in task_cfg.items() if k in _tc_fields}
+            self.task_configs[name] = TaskConfig(name=name, **filtered)
         for name in self.task_configs:
             defaults = DEFAULT_TASK_CONFIGS[name]
             for k, v in defaults.__dict__.items():
@@ -105,6 +110,9 @@ class MultiTaskTrainer:
         self.ema_model = None
         self.ema_decay = mt_config.get('ema_decay', 0.999)
         self.global_step = 0
+
+        from .improvements import DynamicTaskWeighter
+        self.task_weighter = DynamicTaskWeighter(list(self.task_configs.keys()), alpha=0.1)
 
     def _get_optimizer(self, task_name: str, params: Iterable[nn.Parameter]):
         cfg = self.task_configs[task_name]
@@ -120,28 +128,30 @@ class MultiTaskTrainer:
         return torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
     def _compute_task_loss(self, task: str, logits: torch.Tensor,
-                           labels: torch.Tensor) -> torch.Tensor:
-        if task in ('chess', 'translate', 'write'):
-            shift_logits = logits[:, :-1, :].contiguous()
+                           labels: torch.Tensor,
+                           model_logits: torch.Tensor = None) -> torch.Tensor:
+        if task in ('chess', 'translate', 'write', 'predict', 'pii'):
+            lm_logits = model_logits if model_logits is not None else logits
+            if lm_logits.dim() == 2:
+                lm_logits = lm_logits.unsqueeze(1)
+            lm_logits = lm_logits.clamp(min=-20, max=20)
+            shift_logits = lm_logits[:, :-1, :].contiguous()
             shift_labels = labels[:, 1:].contiguous()
-            return F.cross_entropy(
+            loss = F.cross_entropy(
                 shift_logits.view(-1, shift_logits.size(-1)),
                 shift_labels.view(-1),
                 ignore_index=-100,
             )
-        elif task == 'predict':
-            return F.mse_loss(logits.squeeze(-1), labels.float())
-        elif task == 'pii':
-            return F.cross_entropy(
+        else:
+            logits = logits.clamp(min=-20, max=20)
+            loss = F.cross_entropy(
                 logits.view(-1, logits.size(-1)),
                 labels.view(-1),
                 ignore_index=-100,
             )
-        return F.cross_entropy(
-            logits.view(-1, logits.size(-1)),
-            labels.view(-1),
-            ignore_index=-100,
-        )
+        if torch.isnan(loss) or torch.isinf(loss):
+            return torch.tensor(5.0, device=loss.device, requires_grad=True)
+        return loss
 
     def train_step(self, batch: Dict, task: str) -> Dict:
         input_ids = batch['input_ids'].to(self.device)
@@ -163,7 +173,8 @@ class MultiTaskTrainer:
 
         if self.task_heads is not None and hidden is not None:
             task_logits = self.task_heads.forward(task, hidden)
-            task_loss = self._compute_task_loss(task, task_logits, labels)
+            model_logits = outputs.logits if hasattr(outputs, 'logits') else None
+            task_loss = self._compute_task_loss(task, task_logits, labels, model_logits)
             weighted_loss, loss_info = self.task_heads.compute_loss(
                 task, task_logits, labels, task_loss
             )
@@ -247,7 +258,18 @@ class MultiTaskTrainer:
             name: iter(dl) for name, dl in task_dataloaders.items()
         }
 
+        self._interrupted = False
+        def _signal_handler(signum, frame):
+            print("\n[MultiTask] Interrupt received — saving emergency checkpoint...")
+            self._interrupted = True
+        signal.signal(signal.SIGINT, _signal_handler)
+        signal.signal(signal.SIGTERM, _signal_handler)
+
         for epoch in range(start_epoch, epochs):
+            if self._interrupted:
+                print("[MultiTask] Training interrupted by user")
+                break
+
             epoch_losses = defaultdict(float)
             task_steps = defaultdict(int)
 
@@ -258,6 +280,10 @@ class MultiTaskTrainer:
                 task_order = list(task_datasets.keys())
                 random.shuffle(task_order)
 
+                if step % 10 == 0:
+                    total_batches = sum(task_steps.values())
+                    print(f"[MultiTask] outer_step={step}/{max(len(dl) for dl in task_dataloaders.values())} batches_done={total_batches} global_step={self.global_step}")
+
                 for task in task_order:
                     try:
                         batch = next(task_iterators[task])
@@ -265,7 +291,16 @@ class MultiTaskTrainer:
                         task_iterators[task] = iter(task_dataloaders[task])
                         batch = next(task_iterators[task])
 
-                    result = self.train_step(batch, task)
+                    try:
+                        result = self.train_step(batch, task)
+                    except RuntimeError as e:
+                        if 'out of memory' in str(e).lower():
+                            print(f"[MultiTask] OOM on {task} step {task_steps[task]} — emergency checkpoint, reducing batch...")
+                            self._emergency_checkpoint(output_dir, epoch, task_datasets, optimizers, schedulers)
+                            torch.cuda.empty_cache() if torch.cuda.is_available() else None
+                            gc.collect()
+                            continue
+                        raise
                     loss = result['loss']
                     tc = self.task_configs[task]
                     scaled_loss = loss / tc.grad_accum
@@ -289,7 +324,13 @@ class MultiTaskTrainer:
                                 for ema_p, p in zip(self.ema_model.parameters(), self.model.parameters()):
                                     ema_p.mul_(self.ema_decay).add_(p, alpha=1 - self.ema_decay)
 
-            print(f"[MultiTask] Epoch {epoch+1}/{epochs}")
+                        self.task_weighter.update(task, result['task_loss'])
+
+                    if self.global_step % 5 == 0 and (task_steps[task] % tc.grad_accum == 0):
+                        print(f"[MultiTask] step={self.global_step} task={task} loss={result['task_loss']:.4f}")
+
+            weights = self.task_weighter.get_weights()
+            print(f"[MultiTask] Epoch {epoch+1}/{epochs} | weights: {dict(zip(weights.keys(), [f'{w:.3f}' for w in weights.values()]))}")
             for task in task_datasets:
                 avg = epoch_losses[task] / max(1, task_steps[task])
                 print(f"  {task}: loss={avg:.4f}, steps={task_steps[task]}")
@@ -319,8 +360,10 @@ class MultiTaskTrainer:
         return result
 
     def _save_checkpoint(self, output_dir: str, epoch: int,
-                          task_datasets: Dict, optimizers, schedulers):
-        path = os.path.join(output_dir, f"checkpoint_epoch_{epoch+1}.pt")
+                          task_datasets: Dict, optimizers, schedulers,
+                          emergency: bool = False):
+        tag = f"emergency_step_{self.global_step}" if emergency else f"epoch_{epoch+1}"
+        path = os.path.join(output_dir, f"checkpoint_{tag}.pt")
         os.makedirs(output_dir, exist_ok=True)
         checkpoint = {
             'epoch': epoch + 1,
@@ -339,5 +382,11 @@ class MultiTaskTrainer:
         checkpoint['schedulers'] = {
             name: sched.state_dict() for name, sched in schedulers.items()
         }
-        torch.save(checkpoint, path)
-        print(f"[Checkpoint] Saved epoch {epoch+1} to {path}")
+        tmp_path = path + '.tmp'
+        torch.save(checkpoint, tmp_path)
+        os.replace(tmp_path, path)
+        print(f"[Checkpoint] Saved {tag} to {path}")
+
+    def _emergency_checkpoint(self, output_dir: str, epoch: int,
+                               task_datasets: Dict, optimizers, schedulers):
+        self._save_checkpoint(output_dir, epoch, task_datasets, optimizers, schedulers, emergency=True)
