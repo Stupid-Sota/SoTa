@@ -1,20 +1,18 @@
 # SOTA — Stupid Omega Transformers Agent
-# The Claude Opus of Chess Agents
+# Multi-task MoE: Chess, Translation, Writing, Prediction, PII
 
 name: sota
-version: 0.1.0
+version: 0.2.0
 description: >
-  A specialized chess-playing agent with stylized multi-mode output.
-  Built on flan-t5-base (~250M params) with QDoRA adapters,
-  Chain-of-Thought reasoning, and 6 output modes.
+  A multi-task general reasoning assistant with MoE routing,
+  block attention, 5 expert LoRAs, and CoT reasoning.
+  Built on flan-t5-base (~250M params).
 
-# Core model
-base_model: "google/flan-t5-base"
+base_model: "./flan-t5-base"
 base_params: 250_000_000
-tokenizer_vocab: 32_128
 max_seq_length: 512
+max_seq_length_1024: 1024
 
-# Architecture
 model:
   d_model: 768
   num_layers_encoder: 12
@@ -23,35 +21,87 @@ model:
   d_kv: 64
   d_ff: 3072
   dropout: 0.1
+  window_size: 256
+  n_global_tokens: 16
+  compile: false
+  freeze_encoder: true
+  block_attention: true
+  use_moe: true
+  use_task_heads: true
 
-# PEFT Configuration
+moe:
+  n_experts: 5
+  top_k: 2
+  use_noisy_gating: true
+  noise_std: 0.1
+  router_dropout: 0.05
+  load_balance_coeff: 0.01
+  z_loss_coeff: 0.001
+  entropy_coeff: 0.001
+  expert_names: ["chess", "translate", "write", "predict", "pii"]
+  expert_configs:
+    chess:     {r: 16, alpha: 32, dropout: 0.05, targets: ["q", "v"],            dora: true}
+    translate: {r: 12, alpha: 24, dropout: 0.05, targets: ["q", "v", "wi"],      dora: true}
+    write:     {r: 16, alpha: 32, dropout: 0.10, targets: ["q", "v", "wo"],      dora: true}
+    predict:   {r: 8,  alpha: 16, dropout: 0.05, targets: ["q", "v"],            dora: true}
+    pii:       {r: 8,  alpha: 16, dropout: 0.10, targets: ["q", "v"],            dora: true}
+
 peft:
-  method: "qdora"  # qdora = QLoRA + DoRA
+  method: "qdora"
   r: 16
   lora_alpha: 32
   lora_dropout: 0.05
-  target_modules: ["q", "v"]  # decoder self-attn priority
+  target_modules: ["q", "v"]
   use_dora: true
   bias: "none"
   task_type: "SEQ_2_SEQ_LM"
-  # Dynamic rank allocation
-  dynamic_rank: true
-  rank_by_layer:
-    encoder_self_attn: 8
-    decoder_self_attn: 16
-    cross_attn: 16
-    ffn: 8
 
-# Quantization
 quantization:
-  load_in_4bit: true
+  load_in_4bit: false
   bnb_4bit_quant_type: "nf4"
-  bnb_4bit_compute_dtype: "bfloat16"
-  bnb_4bit_use_double_quant: true
+  bnb_4bit_compute_dtype: "float32"
+  bnb_4bit_use_double_quant: false
 
-# Training Pipeline
+multi_task:
+  enabled: true
+  ema_decay: 0.999
+  chess:
+    weight: 0.40
+    batch_size: 1
+    grad_accum: 16
+    learning_rate: 2.0e-4
+    max_length: 512
+  translate:
+    weight: 0.20
+    batch_size: 1
+    grad_accum: 8
+    learning_rate: 1.5e-4
+    max_length: 512
+    size: 500
+  write:
+    weight: 0.20
+    batch_size: 1
+    grad_accum: 8
+    learning_rate: 1.5e-4
+    max_length: 1024
+    size: 300
+  predict:
+    weight: 0.10
+    batch_size: 1
+    grad_accum: 8
+    learning_rate: 1.0e-4
+    max_length: 512
+    size: 400
+  pii:
+    weight: 0.10
+    batch_size: 1
+    grad_accum: 4
+    learning_rate: 1.0e-4
+    max_length: 512
+    size: 200
+
 training:
-  # Stage 1: SFT
+  multi_task_enabled: true
   sft:
     epochs: 3
     batch_size: 1
@@ -61,23 +111,19 @@ training:
     warmup_ratio: 0.05
     weight_decay: 0.01
     max_grad_norm: 1.0
-    gradient_checkpointing: true
+    gradient_checkpointing: false
     bf16: true
-    optimizer: "adafactor"
-
-  # Stage 2: ORPO
+    optimizer: "adamw"
   orpo:
     epochs: 2
     batch_size: 1
     gradient_accumulation_steps: 16
     learning_rate: 1.0e-4
-    beta: 0.1  # ORPO lambda
+    beta: 0.1
     lr_scheduler: "cosine"
     warmup_ratio: 0.03
     bf16: true
-    optimizer: "adafactor"
-
-  # Stage 3: Self-Play RL
+    optimizer: "adamw"
   rl:
     epochs: 3
     batch_size: 1
@@ -87,11 +133,10 @@ training:
     lr_scheduler: "cosine"
     warmup_ratio: 0.03
     bf16: true
-    optimizer: "adafactor"
+    optimizer: "adamw"
     stockfish_depth: 15
     stockfish_time_ms: 1000
 
-# Curriculum
 curriculum:
   enabled: true
   phases:
@@ -111,7 +156,6 @@ curriculum:
       epochs: [6, 8]
       difficulty: 5
 
-# Output Modes
 modes:
   romaji:
     trigger: "romaji"
@@ -127,7 +171,7 @@ modes:
     description: "Musical notes"
   morse:
     trigger: "morse"
-    description: "Morse code (binary if angry)"
+    description: "Morse code"
   neural_debug:
     trigger: "neural"
     description: "Fake neural network debug output"
@@ -135,12 +179,11 @@ modes:
     trigger: "patata"
     description: "Just 'patata'"
 
-# Special tokens
 special_tokens:
-  - "[STH]"    # Start of thought
-  - "[ETH]"    # End of thought
-  - "[NXT]"    # Next candidate analysis
-  - "[MODE]"   # Mode indicator
+  - "[STH]"
+  - "[ETH]"
+  - "[NXT]"
+  - "[MODE]"
   - "[CERTAIN]"
   - "[LIKELY]"
   - "[UNCERTAIN]"
@@ -152,8 +195,9 @@ special_tokens:
   - "[COMPARE]"
   - "[VERIFY]"
   - "[DECIDE]"
+  - "[REDACTED]"
+  - "[PAUSE]"
 
-# Inference
 inference:
   temperature: 0.7
   top_p: 0.9
@@ -161,21 +205,31 @@ inference:
   max_new_tokens: 256
   num_beams: 4
   repetition_penalty: 1.2
-  # Speculative decoding
-  speculative:
-    enabled: true
-    draft_tokens: 3
-    kv_cache_4bit: true
 
-# Evaluation
+logging:
+  enabled: true
+  level: "INFO"
+  log_truncations: true
+  log_memory: true
+  log_step_interval: 10
+  csv_log: true
+
 evaluation:
   stockfish_path: "stockfish"
   stockfish_depth: 20
-  num_games: 100
-  time_control: "1+0"  # 1 minute + 0 increment
+  num_games: 50
+  time_control: "1+0"
   openings: "data/raw/openings.epd"
 
-# Paths
+pii:
+  patterns:
+    email: '[\w.+-]+@[\w-]+\.[\w.-]+'
+    phone: '\b\+?\d{1,3}[\s.-]?\d{3}[\s.-]?\d{3}[\s.-]?\d{4}\b'
+    ssn: '\b\d{3}-\d{2}-\d{4}\b'
+    credit_card: '\b\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}\b'
+    ip_address: '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b'
+  mask_token: "[REDACTED]"
+
 paths:
   data_raw: "data/raw"
   data_processed: "data/processed"

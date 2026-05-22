@@ -68,25 +68,38 @@ class StockfishEngine:
             multipv=multi_pv
         )
 
+        def get_cp(score_obj):
+            sc = score_obj.relative
+            if sc.cp is not None:
+                return sc.cp
+            return 0
+
+        def get_mate(score_obj):
+            sc = score_obj.relative
+            try:
+                return sc.mate()
+            except:
+                return None
+
         analysis = {
             'fen': fen,
             'best_move': result[0]["pv"][0].uci(),
-            'evaluation_cp': result[0].pov(board.turn).cp,
-            'evaluation_mate': result[0].pov(board.turn).mate,
-            'depth': result[0].depth,
+            'evaluation_cp': get_cp(result[0]['score']),
+            'evaluation_mate': get_mate(result[0]['score']),
+            'depth': result[0]['depth'],
             'multi_pv': [],
             'legal_moves': [m.uci() for m in board.legal_moves],
         }
 
         for i, info in enumerate(result):
             pv_moves = [m.uci() for m in info["pv"][:6]]
-            eval_cp = info.pov(board.turn).cp
+            eval_cp = get_cp(info['score'])
             analysis['multi_pv'].append({
                 'rank': i + 1,
                 'move': info["pv"][0].uci(),
                 'pv': pv_moves,
                 'eval_cp': eval_cp,
-                'depth': info.depth,
+                'depth': info['depth'],
             })
 
         return analysis
@@ -661,21 +674,24 @@ class DatasetGenerator:
         else:
             return 5  # Hard - many good moves
 
-    def save_samples(self, samples: List[ChessSample], path: str):
-        """Save samples to JSON."""
+    def save_samples(self, samples: List, path: str):
+        """Save samples to JSON. Accepts ChessSample objects or dicts."""
         os.makedirs(os.path.dirname(path), exist_ok=True)
         data = []
         for s in samples:
-            data.append({
-                'fen': s.fen,
-                'best_move': s.best_move,
-                'stockfish_eval': s.stockfish_eval,
-                'stockfish_depth': s.stockfish_depth,
-                'cot': s.cot,
-                'mode_outputs': s.mode_outputs,
-                'difficulty': s.difficulty,
-                'game_phase': s.game_phase,
-            })
+            if isinstance(s, dict):
+                data.append(s)
+            else:
+                data.append({
+                    'fen': s.fen,
+                    'best_move': s.best_move,
+                    'stockfish_eval': s.stockfish_eval,
+                    'stockfish_depth': s.stockfish_depth,
+                    'cot': s.cot,
+                    'mode_outputs': s.mode_outputs,
+                    'difficulty': s.difficulty,
+                    'game_phase': s.game_phase,
+                })
 
         with open(path, 'w') as f:
             json.dump(data, f, indent=2)

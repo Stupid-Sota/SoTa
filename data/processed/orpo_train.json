@@ -1,0 +1,42 @@
+[
+  {
+    "prompt": "chess position: rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1 | mode: romaji | think: yes",
+    "chosen": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH] enana ego",
+    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] enana ego"
+  },
+  {
+    "prompt": "chess position: rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1 | mode: romaji | think: yes",
+    "chosen": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH] jihachi efuroku",
+    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] jihachi efuroku"
+  },
+  {
+    "prompt": "chess position: rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2 | mode: romaji | think: yes",
+    "chosen": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH] jiichi efusan",
+    "rejected": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH] import chess\nboard = chess.Board(\"rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2\")\nmove = chess.Move.from_uci(\"g1f3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+  },
+  {
+    "prompt": "chess position: rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2 | mode: romaji | think: yes",
+    "chosen": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH] seni seyon",
+    "rejected": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH] import chess\nboard = chess.Board(\"rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2\")\nmove = chess.Move.from_uci(\"c2c4\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"
+  },
+  {
+    "prompt": "chess position: r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3 | mode: romaji | think: yes",
+    "chosen": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH] jihachi efuroku",
+    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] jihachi efuroku"
+  },
+  {
+    "prompt": "chess position: rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4 | mode: romaji | think: yes",
+    "chosen": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH] eyon dego",
+    "rejected": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH] import chess\nboard = chess.Board(\"rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4\")\nmove = chess.Move.from_uci(\"e4d5\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkb1r/ppp2ppp/5n2/3Pp3/2B5/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4"
+  },
+  {
+    "prompt": "chess position: r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4 | mode: romaji | think: yes",
+    "chosen": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH] deni desan",
+    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] deni desan"
+  },
+  {
+    "prompt": "chess position: rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4 | mode: romaji | think: yes",
+    "chosen": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH] seyon besan",
+    "rejected": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH] import chess\nboard = chess.Board(\"rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4\")\nmove = chess.Move.from_uci(\"c4b3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pp3ppp/2p5/3pp3/4P3/1B3N2/PPPP1PPP/RNBQK2R b KQkq - 1 4"
+  }
+]

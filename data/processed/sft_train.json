@@ -1,0 +1,506 @@
+[
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": "enana ego",
+    "mode": "romaji",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": "El pe\u00f3n, cual valiente caballero, abandona e7 y se aposenta en e5.",
+    "mode": "cervantes",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1\")\nmove = chess.Move.from_uci(\"e7e5\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+    "mode": "python",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": "G4\ud834\udd57\ud834\udd65 \u2192 G4\ud834\udd57\ud834\udd65",
+    "mode": "musical",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": ". --... . .....",
+    "mode": "morse",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": "[DEBUG] layer_output: 0.8375\n[DEBUG] attention_weights: 0.4130\n[DEBUG] move_logits: e7e5 = 0.5223\n[DEBUG] predicted: e7e5\n[DEBUG] confidence: 52.2%",
+    "mode": "neural",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "cot": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "e7e5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "jihachi efuroku",
+    "mode": "romaji",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "\u00a1Oh, magn\u00edfico movimiento! El caballo parte de g8 y conquista la casilla f6.",
+    "mode": "cervantes",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1\")\nmove = chess.Move.from_uci(\"g8f6\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2",
+    "mode": "python",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "B4\ud834\udd58\ud834\udd65 \u2192 A4\ud834\udd58\ud834\udd65",
+    "mode": "musical",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "--. ---.. ..-. -....",
+    "mode": "morse",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "[DEBUG] layer_output: 0.5757\n[DEBUG] attention_weights: 0.5045\n[DEBUG] move_logits: g8f6 = 0.8632\n[DEBUG] predicted: g8f6\n[DEBUG] confidence: 86.3%",
+    "mode": "neural",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "jiichi efusan",
+    "mode": "romaji",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "Con sabidur\u00eda digna de los grandes estrategas, traslada el caballo desde g1 hasta f3.",
+    "mode": "cervantes",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2\")\nmove = chess.Move.from_uci(\"g1f3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+    "mode": "python",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "B3\ud834\udd5d \u2192 A3\ud834\udd5d",
+    "mode": "musical",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "--. .---- ..-. ...--",
+    "mode": "morse",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "[DEBUG] layer_output: 0.5707\n[DEBUG] attention_weights: 0.8875\n[DEBUG] move_logits: g1f3 = 0.5860\n[DEBUG] predicted: g1f3\n[DEBUG] confidence: 58.6%",
+    "mode": "neural",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "cot": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "g1f3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "seni seyon",
+    "mode": "romaji",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "Mueve el pe\u00f3n de c2 a c4, con gran maestr\u00eda y nobleza de esp\u00edritu.",
+    "mode": "cervantes",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2\")\nmove = chess.Move.from_uci(\"c2c4\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2",
+    "mode": "python",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "E3\ud834\udd57\ud834\udd65 \u2192 E3\ud834\udd57\ud834\udd65",
+    "mode": "musical",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "-.-. ..--- -.-. ....-",
+    "mode": "morse",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "[DEBUG] layer_output: 0.4539\n[DEBUG] attention_weights: 0.3683\n[DEBUG] move_logits: c2c4 = 0.9446\n[DEBUG] predicted: c2c4\n[DEBUG] confidence: 94.5%",
+    "mode": "neural",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2",
+    "cot": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "c2c4",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "jihachi efuroku",
+    "mode": "romaji",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "El caballo, cual valiente caballero, abandona g8 y se aposenta en f6.",
+    "mode": "cervantes",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3\")\nmove = chess.Move.from_uci(\"g8f6\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "mode": "python",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "B4\ud834\udd58\ud834\udd65 \u2192 A4\ud834\udd58\ud834\udd65",
+    "mode": "musical",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "--. ---.. ..-. -....",
+    "mode": "morse",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "[DEBUG] layer_output: 0.5831\n[DEBUG] attention_weights: 0.4224\n[DEBUG] move_logits: g8f6 = 0.9500\n[DEBUG] predicted: g8f6\n[DEBUG] confidence: 95.0%",
+    "mode": "neural",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "cot": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "g8f6",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": "eyon dego",
+    "mode": "romaji",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": "\u00a1Oh, magn\u00edfico movimiento! El pe\u00f3n parte de e4 y conquista la casilla d5.",
+    "mode": "cervantes",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4\")\nmove = chess.Move.from_uci(\"e4d5\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkb1r/ppp2ppp/5n2/3Pp3/2B5/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4",
+    "mode": "python",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": "G3\ud834\udd58\ud834\udd65\ud834\udd6e \u2192 F4\ud834\udd58\ud834\udd65\ud834\udd6e",
+    "mode": "musical",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": ". ....- -.. .....",
+    "mode": "morse",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": "[DEBUG] layer_output: 0.5843\n[DEBUG] attention_weights: 0.3642\n[DEBUG] move_logits: e4d5 = 0.8884\n[DEBUG] predicted: e4d5\n[DEBUG] confidence: 88.8%",
+    "mode": "neural",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "e4d5",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "deni desan",
+    "mode": "romaji",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "\u00a1Oh, magn\u00edfico movimiento! El pe\u00f3n parte de d2 y conquista la casilla d3.",
+    "mode": "cervantes",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4\")\nmove = chess.Move.from_uci(\"d2d3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4",
+    "mode": "python",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "F3\ud834\udd57\ud834\udd65 \u2192 F3\ud834\udd57\ud834\udd65",
+    "mode": "musical",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "-.. ..--- -.. ...--",
+    "mode": "morse",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "[DEBUG] layer_output: 0.7914\n[DEBUG] attention_weights: 0.5777\n[DEBUG] move_logits: d2d3 = 0.9399\n[DEBUG] predicted: d2d3\n[DEBUG] confidence: 94.0%",
+    "mode": "neural",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "cot": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "d2d3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "seyon besan",
+    "mode": "romaji",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "Mueve el alfil de c4 a b3, con gran maestr\u00eda y nobleza de esp\u00edritu.",
+    "mode": "cervantes",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "import chess\nboard = chess.Board(\"rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4\")\nmove = chess.Move.from_uci(\"c4b3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pp3ppp/2p5/3pp3/4P3/1B3N2/PPPP1PPP/RNBQK2R b KQkq - 1 4",
+    "mode": "python",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "E3\ud834\udd58\ud834\udd65\ud834\udd6e \u2192 D3\ud834\udd58\ud834\udd65\ud834\udd6e",
+    "mode": "musical",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "-.-. ....- -... ...--",
+    "mode": "morse",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "[DEBUG] layer_output: 0.2974\n[DEBUG] attention_weights: 0.2551\n[DEBUG] move_logits: c4b3 = 0.6024\n[DEBUG] predicted: c4b3\n[DEBUG] confidence: 60.2%",
+    "mode": "neural",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  },
+  {
+    "fen": "rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "cot": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH]",
+    "output": "patata",
+    "mode": "patata",
+    "best_move": "c4b3",
+    "difficulty": 5,
+    "game_phase": "opening"
+  }
+]
