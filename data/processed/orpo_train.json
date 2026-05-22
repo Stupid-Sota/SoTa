@@ -1,42 +1,1652 @@
 [
   {
-    "prompt": "chess position: rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1 | mode: romaji | think: yes",
-    "chosen": "[STH] Black to move. equal. Best: e7e5 [GUESSING] [ETH] enana ego",
-    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] enana ego"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6"
   },
   {
-    "prompt": "chess position: rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1 | mode: romaji | think: yes",
-    "chosen": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH] jihachi efuroku",
-    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] jihachi efuroku"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
   },
   {
-    "prompt": "chess position: rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2 | mode: romaji | think: yes",
-    "chosen": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH] jiichi efusan",
-    "rejected": "[STH] White to move. equal. Best: g1f3 [GUESSING] [ETH] import chess\nboard = chess.Board(\"rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2\")\nmove = chess.Move.from_uci(\"g1f3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/pppppppp/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
   },
   {
-    "prompt": "chess position: rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2 | mode: romaji | think: yes",
-    "chosen": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH] seni seyon",
-    "rejected": "[STH] White to move. equal. Best: c2c4 [GUESSING] [ETH] import chess\nboard = chess.Board(\"rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2\")\nmove = chess.Move.from_uci(\"c2c4\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: f4 [ETH] f4"
   },
   {
-    "prompt": "chess position: r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3 | mode: romaji | think: yes",
-    "chosen": "[STH] Black to move. equal. Best: g8f6 [GUESSING] [ETH] jihachi efuroku",
-    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] jihachi efuroku"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
   },
   {
-    "prompt": "chess position: rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4 | mode: romaji | think: yes",
-    "chosen": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH] eyon dego",
-    "rejected": "[STH] White to move. equal. Best: e4d5 [UNCERTAIN] [ETH] import chess\nboard = chess.Board(\"rnbqkb1r/ppp2ppp/5n2/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4\")\nmove = chess.Move.from_uci(\"e4d5\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkb1r/ppp2ppp/5n2/3Pp3/2B5/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
   },
   {
-    "prompt": "chess position: r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4 | mode: romaji | think: yes",
-    "chosen": "[STH] White to move. equal. Best: d2d3 [UNCERTAIN] [ETH] deni desan",
-    "rejected": "[STH] No veo nada claro. Muevo algo. [ETH] deni desan"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
   },
   {
-    "prompt": "chess position: rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4 | mode: romaji | think: yes",
-    "chosen": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH] seyon besan",
-    "rejected": "[STH] White to move. equal. Best: c4b3 [GUESSING] [ETH] import chess\nboard = chess.Board(\"rnbqkbnr/pp3ppp/2p5/3pp3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4\")\nmove = chess.Move.from_uci(\"c4b3\")\nassert move in board.legal_moves\nboard.push(move)\n# Result: rnbqkbnr/pp3ppp/2p5/3pp3/4P3/1B3N2/PPPP1PPP/RNBQK2R b KQkq - 1 4"
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/PPPPPPPP/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/rnbqkbnr/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/pppppppp/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/PPPPPPPP/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/rnbqkbnr/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/rnbqkbnr/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/pppppppp/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/pppppppp/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/pppppppp/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] opening position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/PPPPPPPP/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/pppppppp/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf3 [ETH] Nf3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/PPPPPPPP/8/8/8/8/8/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc5 [ETH] Bc5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/pppppppp/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] opening position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] opening position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf3 [ETH] Nf3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/pppppppp/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Bc5 [ETH] Bc5",
+    "rejected": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/RNBQKBNR/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] opening position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/PPPPPPPP/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/pppppppp/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] opening position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/rnbqkbnr/8/8/8/8/pppppppp/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/8/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/rnbqkbnr/8/8/8/8/RNBQKBNR/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/rnbqkbnr/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/8/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Rd1 [ETH] Rd1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] opening position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/8/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/rnbqkbnr/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/pppppppp/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/rnbqkbnr/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6",
+    "rejected": "[STH] opening position. [GUESSING] Best: Nc6 [ETH] Nc6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Re1 [ETH] Re1"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] opening position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/RNBQKBNR/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e4 [ETH] e4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/PPPPPPPP/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/pppppppp/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/RNBQKBNR/8/8/8/8/RNBQKBNR/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/8/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] endgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/rnbqkbnr/8/8/8/8/8/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: d4 [ETH] d4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: d4 [ETH] d4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/pppppppp/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Qd2 [ETH] Qd2"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/PPPPPPPP/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/rnbqkbnr/8/8/8/8/rnbqkbnr/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] midgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/PPPPPPPP/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/PPPPPPPP/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3",
+    "rejected": "[STH] endgame position. [GUESSING] Best: g3 [ETH] g3"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/pppppppp/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O",
+    "rejected": "[STH] opening position. [GUESSING] Best: O-O [ETH] O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/RNBQKBNR/8/8/8/8/pppppppp/8 w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Qe2 [ETH] Qe2",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/pppppppp/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4",
+    "rejected": "[STH] endgame position. [GUESSING] Best: Bc4 [ETH] Bc4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/8/8/8/8/8/RNBQKBNR/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O",
+    "rejected": "[STH] midgame position. [GUESSING] Best: O-O-O [ETH] O-O-O"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/PPPPPPPP/8/8/8/8/rnbqkbnr/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] endgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/pppppppp/pppppppp w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nPPPPPPPP/PPPPPPPP/8/8/8/8/8/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/PPPPPPPP/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6",
+    "rejected": "[STH] endgame position. [GUESSING] Best: b6 [ETH] b6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/RNBQKBNR/8/8/8/8/rnbqkbnr/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6",
+    "rejected": "[STH] midgame position. [GUESSING] Best: Nf6 [ETH] Nf6"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "chosen": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5",
+    "rejected": "[STH] midgame position. [GUESSING] Best: c5 [ETH] c5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nRNBQKBNR/8/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4",
+    "rejected": "[STH] opening position. [GUESSING] Best: c4 [ETH] c4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\nrnbqkbnr/pppppppp/8/8/8/8/rnbqkbnr/8 w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4",
+    "rejected": "[STH] opening position. [GUESSING] Best: f4 [ETH] f4"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/PPPPPPPP/8/8/8/8/8/rnbqkbnr w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5",
+    "rejected": "[STH] opening position. [GUESSING] Best: d5 [ETH] d5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\npppppppp/RNBQKBNR/8/8/8/8/PPPPPPPP/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5",
+    "rejected": "[STH] opening position. [GUESSING] Best: e5 [ETH] e5"
+  },
+  {
+    "prompt": "Analyze this chess position and provide the best move in romaji mode.\n8/pppppppp/8/8/8/8/RNBQKBNR/PPPPPPPP w KQkq - 0 1",
+    "chosen": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1",
+    "rejected": "[STH] opening position. [GUESSING] Best: Re1 [ETH] Re1"
   }
 ]
